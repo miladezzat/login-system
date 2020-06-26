@@ -1,0 +1,29 @@
+<div class="row" id="signup">
+  <div class="col-12 col-md-6 m-auto py-5 px-2">
+    <h1 class="text-center">Sign Up</h1>
+    {{#if hasErrors}}
+    <div class="alert alert-danger">
+      {{# each messages}}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+    <form class="py-4 px-2 shadow-lg p-3 mb-5 bg-white rounded" action="/user/signup" method="post">
+      <div class="form-group">
+        <label for="full_name">Full Name</label>
+        <input type="text" name="full_name" id="full_name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="text" name="email" id="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control">
+      </div>
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <button type="submit" name="button" class="btn btn-primary btn-block">Sign UP</button>
+      <p>Already have an account ? <a href="/user/signin">Sign in instead!</a> </p>
+    </form>
+  </div>
+</div>

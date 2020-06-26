@@ -1,0 +1,10 @@
+#signin, #signup{
+    height: 82vh;
+}
+form{
+    border: 1px solid black;
+}
+
+#home,#profile{
+    height: 100vh;
+}
