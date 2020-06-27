@@ -1,5 +1,62 @@
-<div class="row" id="profile">
+<div class="container py-5 h1">
     <div class="col-12 py-5">
         <h1 class="text-center">{{username}}</h1>
     </div>
+    <div class="col-12 px-5">
+        <form class="h1 p-5" action="/place" method="POST">
+            <div class="form-group">
+                <label for="place_name">Place Name</label>
+                <input name="place_name" type="text" class="form-control" id="place_name" placeholder="Place name">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input name="address" type="text" class="form-control" id="address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label for="money_per_day">Money Per Day</label>
+                <input name="money_per_day" type="number" class="form-control" id="money_per_day" placeholder="Money Per day">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" class="form-control" id="category">
+                    <option value="cat 1">1</option>
+                    <option value="cat 2">2</option>
+                    <option value="cat 3">3</option>
+                    <option value="cat 4">4</option>
+                    <option value="cat 5">5</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+<div class="p-5">
+    <hr>
+    <h1 class="text-center">Places </h1>
+    <table class="table h1">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Place Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Money Per Day</th>
+                <th scope="col">Category</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each places}}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{this.place_name}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.money_per_day}}</td>
+                <td>{{this.category}}</td>
+                <td><a href="/place/delete/{{this._id}}">Delete</a></td>
+                <td><a href="/place/edit/{{this._id}}">Edit</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </div>

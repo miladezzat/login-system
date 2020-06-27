@@ -15,6 +15,7 @@ var userSchema = new Schema({
     required: true 
   },  
 });
+
 userSchema.methods.encryptPasswprd = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 };

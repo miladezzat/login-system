@@ -1,5 +1,153 @@
-<div class="row" id="home">
-    <div class="col-12">
-        <h1 class="text-center">Home</h1>
+<!--- Start of the Intrduction ------>
+<main>
+    <div class="hero">
+        <div class="container">
+            <div class="main-heading">
+                <h1 class="title">Welcome to <span>trippin</span></h1>
+                <h2 class="subtitle">Get ready to plan your trip</h2>
+            </div>
+            <a href="#" class="btn">Explore now
+            </a>
+        </div>
     </div>
-</div>
+</main>
+
+<section class="description">
+    <div class="container">
+        <div class="grid global-headline">
+            <div class="grid-item">
+                <div class="description-img">
+                    <img src="https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                        height="300" width="500" alt="">
+                </div>
+            </div>
+            <div class="grid-item">
+                <h2 class="headline">Discover our features</h2>
+                <p>Our website is developed for travelers who face problems with planning their trip and choosing the
+                    destination that suits their preferences. So, need help? then let us recommend a trip for you.</p>
+                <a href="#" class="btn button-body">Recommend a trip</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--- End of the Intrduction ------>
+<!--- Start of the booking section ------>
+<section class="booking">
+    <div class="container">
+        <div class="form-description">
+            <p>Already have a plan? then go ahead and book a room!</p>
+        </div>
+        <form class="form" action="">
+            <div class="input-group">
+                <label for="destinaton" class="input-label">Destination</label>
+                <input type="text" class="input" id="destinaton">
+            </div>
+            <div class="input-group">
+                <label for="check-in" class="input-label">Check in</label>
+                <input type="date" class="input" id="check-in">
+            </div>
+            <div class="input-group">
+                <label for="check-out" class="input-label">Check out</label>
+                <input type="date" class="input" id="check-out">
+            </div>
+            <div class="input-group">
+                <label for="adults" class="input-label">Adults</label>
+                <select class="options" id="adults">
+                    <option value="0">0</option>
+                    <option value="0">1</option>
+                    <option value="0">2</option>
+                    <option value="0">3</option>
+                    <option value="0">4</option>
+                    <option value="0">5</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="children" class="input-label">Children</label>
+                <select class="options" id="children">
+                    <option value="0">0</option>
+                    <option value="0">1</option>
+                    <option value="0">2</option>
+                    <option value="0">3</option>
+                    <option value="0">4</option>
+                    <option value="0">5</option>
+                </select>
+            </div>
+            <button type="submit" name="button" class="btn form-button">Search</button>
+        </form>
+    </div>
+</section>
+<!--- End of the booking section ------>
+<!--- Start of the popular destinations section ------>
+<section class="gallery">
+    <div class="container">
+        <h5 class="head-section">Popular destinatons</h5>
+        <div class="grid">
+            <div class="grid-item popular-destinations">
+                <img src="https://cdn.pixabay.com/photo/2018/01/17/11/51/egypt-3088065_1280.jpg" alt=""
+                    class="hotel-img" height="230px" width="230px">
+                <h5 class="hotel-name">St Catherine, Sinai</h5>
+                <a href="#" class="btn des-btn">Explore</a>
+            </div>
+            <div class="grid-item popular-destinations">
+                <img src="https://cdn.pixabay.com/photo/2016/04/21/19/10/egypt-1344318_1280.jpg" alt=""
+                    class="hotel-img" height="230px" width="230px">
+                <h5 class="hotel-name">Abu Simble, Aswan</h5>
+                <a href="#" class="btn des-btn">Explore</a>
+            </div>
+            <div class="grid-item popular-destinations">
+                <img src="https://cdn.pixabay.com/photo/2018/10/14/14/24/red-sea-3746582_1280.jpg" alt=""
+                    class="hotel-img" height="230px" width="230px">
+                <h5 class="hotel-name">Beaches in Egypt</h5>
+                <a href="#" class="btn des-btn">Explore</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--- End of the popular destinations section ------>
+<!--- Start of the contact section ------>
+<section class="contact">
+    <div class="container">
+        <h5 class="head-section">
+            Contact
+            <span class="sub-heading">Get in touch with us</span>
+        </h5>
+        <div class="contact-content">
+            <div class="wrapper">
+                <img src="https://images.unsplash.com/photo-1470074558764-4e577e98bc85?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                    alt="">
+            </div>
+            <form action="" class="contact-form">
+                <div class="input-group-wrap">
+                    <div class="input-group">
+                        <input type="text" class="input-contact" name="" placeholder="Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" class="input-contact" name="" placeholder="E-mail" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="" class="input-contact" placeholder="Subject" required>
+                </div>
+                <div class="input-group">
+                    <textarea type="text" class="input-contact" rows="9" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" name="button" class="btn form-buttom">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!--- End of the contact section ------>
+  <!--- Start of the Footer ------>
+  <footer class="footer">
+    <div class="container">
+      <h4 class="footer-heading">Follow us</h4>
+      <div class="social-media-wrapper">
+        <a href="#" class="link"><i class="fab fa-facebook-square"></i></a>
+        <a href="#" class="link"><i class="fab fa-twitter-square"></i></a>
+        <a href="#" class="link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="link"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!--- End of the Footer ------>

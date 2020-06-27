@@ -1,25 +1,23 @@
-<div class="row" id="signin">
-  <div class="col-12 col-md-6 m-auto py-5 px-2">
-    <h1 class="text-center">Sign In</h1>
-    {{#if hasErrors}}
+<!--- Start of the form ------>
+<section class="Sign-In-container">
+  <div class="container">
+    <div class="form-box">
+      {{#if hasErrors}}
       <div class="alert alert-danger">
         {{# each messages}}
-          <p>{{this}}</p>
+        <p>{{this}}</p>
         {{/each}}
       </div>
-    {{/if}}
-    <form action="/user/signin" method="post" class="py-4 px-2 shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input type="text" name="email" id="email" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" class="form-control">
-      </div>
-      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-      <button type="submit" name="button" class="btn btn-primary btn-block">Sign In</button>
-      <p>Don't have an account ? <a href="/user/signup">Sign Up instead!</a> </p>
-    </form>    
+      {{/if}}
+      <form class="signin-form" action="/user/signin" method="post">
+        <h3>Sign In</h3>
+        <input class="form-input" placeholder="Email " type="email" name="email">
+        <input class="form-input" placeholder="Password" type="password" name="password">
+        <a href="#">Forgot password?</a>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button class="btn btn-form" type="submit" name="button">Done</button>
+        <p>Don't have an account ? <a href="/user/signup">Sign Up instead!</a> </p>
+      </form>
+    </div>
   </div>
-</div>
+</section>

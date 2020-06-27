@@ -1,10 +1,573 @@
-#signin, #signup{
-    height: 82vh;
-}
-form{
-    border: 1px solid black;
-}
+ /*Global styles*/
+ *,
+ *::before,
+ *::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
 
-#home,#profile{
-    height: 100vh;
-}
+ /*:root {
+   --main-font: 'Source Sans Pro', sans-serif;
+   --secondary-font: 'Herr Von Muellerhoff', cursive;
+   --body-font: 'Cabin', sans-serif;
+   --main-font-color-dark: #252525;
+   --secondary-font-color: #c59d5f;
+   --body-font-color: #515151;
+ }
+*/
+ /*Header styles*/
+ html {
+   font-family: 'Poiret One';
+   font-size: 10px;
+ }
+
+ .container {
+   width: 100%;
+   max-width: 120rem;
+   padding: 0 1.5rem;
+   margin: 0 auto;
+ }
+
+ header {
+   width: 100%;
+   height: 6rem;
+   display: flex;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   background-color: rgba(68, 55, 55, .6);
+ }
+
+ .hamburger-menu {
+   color: #fff;
+   font-size: 2.6rem;
+   position: relative;
+   cursor: pointer;
+   z-index: 1500;
+ }
+
+ a {
+   text-decoration: none;
+ }
+
+ nav {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .logo img {
+   max-width: 80%;
+ }
+
+ .hamburger-menu .fa-times {
+   display: none;
+ }
+
+ .menu-open .hamburger-menu .fa-times {
+   display: block;
+ }
+
+ .menu-open .hamburger-menu .fa-bars {
+   display: none;
+ }
+
+ .nav-list {
+   list-style-type: none;
+   position: fixed;
+   top: 0;
+   right: 0;
+   width: 80%;
+   height: 100vh;
+   padding: 3rem;
+   background-color: rgb(68, 55, 55, .9);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   z-index: 1300;
+   opacity: 0;
+   transform: scale(0);
+   transition: opacity .6s;
+ }
+
+ .menu-open .nav-list {
+   opacity: 1;
+   transform: scale(1);
+ }
+
+ .nav-item {
+   margin-bottom: .5rem;
+   border-bottom: 2px solid rgba(255, 255, 255, .3);
+ }
+
+ .nav-link {
+   display: block;
+   color: #fff;
+   font-size: 1.7rem;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   padding: 1rem;
+   transition: color.5s;
+   font-family: 'Poiret One';
+ }
+
+ .nav-link:hover {
+   color: #c59d5f;
+ }
+
+ /*Intrduction styles*/
+ .hero {
+   width: 100%;
+   height: 100vh;
+   background: url('https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center no-repeat;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   position: relative;
+   z-index: 0;
+ }
+
+ .hero::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: inherit;
+   height: inherit;
+   background-color: rgba(33, 36, 61, .4);
+   z-index: -1;
+ }
+
+ .main-heading {
+   color: #fff;
+   line-height: 2;
+   margin-bottom: 2.5rem;
+ }
+
+ .title {
+   font-size: 3rem;
+   letter-spacing: 3px;
+ }
+
+ .title span {
+   font-size: 2.6rem;
+   font-family: 'Bad Script', cursive;
+   text-transform: uppercase;
+ }
+
+ .subtitle {
+   font-size: 2rem;
+ }
+
+ .btn {
+   color: #fff;
+   font-size: 1.9rem;
+   padding: .6rem 3.6rem;
+   border: none;
+   border-radius: 3rem;
+   background: linear-gradient(90deg, rgba(84, 123, 138, 1) 18%, rgba(155, 171, 177, 1) 49%, rgba(68, 55, 55, 1) 100%);
+ }
+
+ /*The End of the Intrduction styles*/
+ /*Start of the description*/
+ .description .global-headline {
+   margin-top: 6.9rem;
+   margin-bottom: 2.1rem;
+   text-align: center;
+ }
+
+ .global-headline .headline {
+   font-size: 4rem;
+   margin-bottom: 2rem;
+   letter-spacing: 4px;
+ }
+
+ .global-headline p {
+   line-height: 1.6;
+   margin-bottom: 2.1rem;
+   font-size: 2rem;
+ }
+
+ .description-img {
+   display: none;
+ }
+
+ .global-headline .button-body {
+   background: linear-gradient(90deg, rgba(84, 123, 138, .5) 11%, rgba(132, 164, 176, .5) 49%, rgba(68, 55, 55, .5) 85%);
+ }
+
+ /*End of the description*/
+ /*Start of the booking form*/
+ .form-description {
+   font-size: 3rem;
+   letter-spacing: 2px;
+   color: black;
+   margin-top: 4.9rem;
+   margin-bottom: 4rem;
+ }
+
+ .booking {
+   background: linear-gradient(90deg, rgba(84, 123, 138, .5) 11%, rgba(132, 164, 176, .5) 49%, rgba(68, 55, 55, .5) 85%);
+   margin-top: 1.5rem;
+ }
+
+ .input-group {
+   margin-bottom: 1.5rem;
+ }
+
+ .input-label {
+   display: block;
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #fff;
+   margin-bottom: 1rem;
+ }
+
+ .input, .options {
+   width: 100%;
+   min-height: 40px;
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid rgba(68, 55, 55);
+   outline: none;
+   padding: 1rem;
+   font-weight: bold;
+   letter-spacing: 3px;
+ }
+
+ .form-button {
+   color: #fff;
+   font-size: 1.5rem;
+   padding: .5rem 3.5rem;
+   border: none;
+   border-radius: 3rem;
+   margin-top: 2.5rem;
+   background-color: rgba(78, 77, 55, 1);
+   cursor: pointer;
+   margin-bottom: 2rem;
+ }
+
+ .form-button:hover {
+   background-color: #231903;
+ }
+
+ /*End of the booking form*/
+ /*Start of the popular destinations section*/
+ .head-section {
+   text-align: center;
+   margin-bottom: 5rem;
+   display: block;
+   font-size: 4rem;
+   letter-spacing: 4px;
+ }
+
+ .grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   grid-gap: 3rem;
+ }
+
+ .grid-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .popular-destinations {
+   height: 25rem;
+   padding: 1rem;
+   color: #fff;
+   position: relative;
+   z-index: 0;
+ }
+
+ .popular-destinations::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(78, 77, 55, .5);
+   z-index: -1;
+ }
+
+ .hotel-img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: -5;
+ }
+
+ .hotel-name {
+   font-size: 2.6rem;
+ }
+
+ .des-btn {
+   margin-top: 1.5rem;
+ }
+
+ /*End of the popular destinations section*/
+ /*Start of the contact section*/
+ .contact-content {
+   display: flex;
+   justify-content: center;
+ }
+
+ .wrapper {
+   display: none;
+ }
+
+ .contact-form {
+   width: 100%;
+   background-image: linear-gradient(90deg, rgba(84, 123, 138, .5) 11%, rgba(132, 164, 176, .5) 49%, rgba(68, 55, 55, .5) 85%);
+   padding: 2.5rem;
+   border-radius: 5px;
+ }
+
+ .sub-heading {
+   display: block;
+ }
+
+ .input-contact {
+   display: block;
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid rgba(68, 55, 55);
+   padding: 10px;
+   color: black;
+   width: 100%;
+   font-size: 16px;
+   font-family: 'Nanum Gothic', sans-serif;
+   font-weight: normal;
+   width: 100%;
+   min-height: 3rem;
+   padding: 1rem;
+   letter-spacing: 3px;
+ }
+
+ /*End of the contact section*/
+ /*Start of the footer section*/
+ .footer {
+   background-color: rgb(68, 55, 55, .9);
+   color: #fff;
+   padding: 2rem;
+   margin-top: 1.5rem;
+   align-items: center;
+ }
+
+ .footer-heading {
+   text-transform: uppercase;
+   margin-bottom: 2rem;
+   font-size: 13px;
+   text-align: center;
+ }
+
+ .social-media-wrapper {
+   justify-content: center;
+   display: flex;
+ }
+
+ .link {
+   padding: 10px;
+ }
+
+ .link i {
+   color: #fff;
+   font-size: 1.5rem;
+ }
+
+ /*End of the footer section*/
+ /*Start of the login page*/
+ .Sign-In-container, .Sign-Up-container {
+   width: 100%;
+   height: 100vh;
+   background: url('https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center no-repeat;
+   background-size: cover;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   position: relative;
+   display: flex;
+   z-index: 0;
+   font-family: 'EB Garamond', serif;
+ }
+
+ .Sign-In-container::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: inherit;
+   height: inherit;
+   background-color: rgba(33, 36, 61, .8);
+   z-index: -1;
+ }
+
+ .signin-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+ }
+
+ .signin-form h3 {
+   font-size: 3rem;
+   margin: 30px 0;
+   color: #fff;
+ }
+
+ .signin-form input {
+   width: 25rem;
+   height: 4rem;
+   margin-bottom: 15px;
+   border: 1px solid white;
+   border-radius: 20px;
+   background-color: transparent;
+   text-align: center;
+ }
+
+ .signin-form input::placeholder {
+   color: #fff;
+   font-size: 1.6rem;
+ }
+
+ .signin-form a {
+   color: #fff;
+   font-size: 1.5rem;
+ }
+
+ .btn-form {
+   font-size: 1.5rem;
+   margin-top: 2rem;
+ }
+
+ /*End of the login page*/
+ .Sign-Up-container::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: inherit;
+   height: inherit;
+   background-color: rgba(33, 36, 61, .8);
+   z-index: -1;
+ }
+
+ .signup-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+ }
+
+ .signup-form h3 {
+   font-size: 3rem;
+   margin: 30px 0;
+   color: #fff;
+ }
+
+ .signup-form input {
+   width: 25rem;
+   height: 4rem;
+   margin-bottom: 15px;
+   border: 1px solid white;
+   border-radius: 20px;
+   background-color: transparent;
+   text-align: center;
+ }
+
+ .signup-form input::placeholder {
+   color: #fff;
+   font-size: 1.6rem;
+ }
+
+ .btn-form {
+   font-size: 1.5rem;
+   margin-top: 2rem;
+ }
+
+ /*Media queries*/
+ @media screen and (min-width: 768px) {
+   .wrapper {
+     display: block;
+     flex: 0 0 46%;
+     margin-right: 1.5rem;
+   }
+
+   .wrapper img {
+     width: 100%;
+   }
+
+   .contact-form {
+     flex: 0 0 45%;
+     align-self: flex-start;
+   }
+
+   .contact-content {
+     justify-content: space-between;
+   }
+
+   .title {
+     font-size: 5rem;
+   }
+
+   .title span {
+     font-size: 4rem
+   }
+ }
+
+ @media screen and (min-width: 1000px) {
+   section:not(.booking) {
+     padding: 5rem 0;
+   }
+
+   .hamburger-menu {
+     display: none;
+   }
+
+   .nav-list {
+     width: initial;
+     height: initial;
+     position: initial;
+     justify-content: initial;
+     background-color: transparent;
+     flex-direction: row;
+     opacity: 1;
+     transform: scale(1);
+   }
+
+   .nav-item:not(last-child) {
+     margin-right: 3rem;
+   }
+
+   .nav-link:hover {
+     color: #231903;
+   }
+
+   .form {
+     display: flex;
+     justify-content: space-between;
+   }
+
+   .wrapper img {
+     width: 80%;
+     height: 82%;
+   }
+
+   .description-img {
+     display: block;
+   }
+ }

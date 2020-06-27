@@ -6,8 +6,19 @@ const passport = require('passport');
 const csrfProtection = csrf();
 router.use(csrfProtection);
 
-router.get('/profile', isLoggedIn, function (req, res, next) {  
-  res.render('user/profile', { username: req.user.full_name , title: "sarah && roma"});
+const placeModel = require("../models/place");
+
+router.get('/profile', isLoggedIn, async (req, res, next) => {
+
+  const places = await placeModel.find();
+
+  console.log("Place: ", places);
+
+  res.render('user/profile', {
+    username: req.user.full_name,
+    title: "sarah && roma",
+    places,
+  });
 });
 
 router.get('/addproduct', isLoggedIn, function (req, res, next) {
@@ -19,7 +30,7 @@ router.post('/addproduct', isLoggedIn, function (req, res, next) {
 });
 
 router.get('/logout', isLoggedIn, function (req, res, next) {
-  req.logout();  
+  req.logout();
   res.redirect('/');
 });
 
