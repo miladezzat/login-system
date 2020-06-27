@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('home', { title: "sarah && roma" });
-});
+const placeModel = require("../models/place");
 
-// if (!req.session.cart) {
-//   return res.render('shop/shopping-cart', {products: null});
-// }
+/* GET home page. */
+router.get('/', async (req, res, next) => {
+  const popular_destination = await placeModel.find().limit(3);
+
+  res.render('home', { title: "sarah && roma", popular_destination });
+});
 
 module.exports = router;
 

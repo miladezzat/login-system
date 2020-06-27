@@ -24,7 +24,7 @@ const upload = multer({ storage: storage })
 
 
 router.post("/", upload.any(), (req, res, next) => {
-    const { place_name, address, money_per_day, category } = req.body;
+    const { place_name, address, money_per_day, category, description } = req.body;
     let card_icon, photos = [];
     if (req.files) {
         card_icon = req.files[0].path.slice(7);
@@ -39,6 +39,7 @@ router.post("/", upload.any(), (req, res, next) => {
         address,
         card_icon,
         photos,
+        description,
         money_per_day: +money_per_day,
         category
     });
@@ -84,19 +85,27 @@ router.get("/delete/:id", async (req, res, next) => {
 router.get("/recommend", async (req, res, next) => {
     const { budget, category } = req.query;
 
-    const results = await placeModel.find({ category: category });
+    let results, recommended;
+    if (!budget && !category) {
+        results = await placeModel.find();
+        recommended = results;
+    } else {
+        results = await placeModel.find({ category: category });
 
-    const recommended = await results.map(result => {
-        let duration = budget / result.money_per_day;
-        return {
-            _id: result._id,
-            place_name: result.place_name,
-            money_per_day: result.money_per_day,
-            address: result.address,
-            duration,
-        }
-    });
-    res.render("search");
+        recommended = await results.map(result => {
+            let duration = budget / result.money_per_day;
+            return {
+                _id: result._id,
+                place_name: result.place_name,
+                card_icon: result.card_icon,
+                address: result.address,
+                description: result.description,
+                duration,
+            }
+        })
+    }
+    console.log(results)
+    res.render("search", { results: recommended });
 })
 
 

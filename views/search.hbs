@@ -1,5 +1,54 @@
 <div class="container-fluid py-5">
     <div class="row py-5">
-        <h1 class="text-center">Results</h1>
+        <div class="col-12 py-5">
+            <form action="/place/recommend" method="get">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" type="number" name="budget" placeholder="Budget">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <select name="category" class="form-control" id="category">
+                                    <option disabled> Select Trip Type </option>
+                                    <option value="cat 1"> Cat 1</option>
+                                    <option value="cat 2"> Cat 2</option>
+                                    <option value="cat 3"> Cat 3</option>
+                                    <option value="cat 4"> Cat 4</option>
+                                    <option value="cat 5"> Cat 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn px-5 py-3">Find</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="row py-5">
+        <div class="col-12">
+            <h1 class="text-center py-5">Results</h1>
+        </div>
+    </div>
+    <div class="row">
+        {{#each results}}
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top" src="/{{this.card_icon}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.place_name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <p class="card-text">Recommend duration based on
+                        you budget: {{this.duration}} day(s)</p>
+                    <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

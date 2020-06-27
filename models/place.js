@@ -17,6 +17,9 @@ var placeSchema = new Schema({
   card_icon: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   photos: [{ type: String }],
   created_at: {
     type: Date,
