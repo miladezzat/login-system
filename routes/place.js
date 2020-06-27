@@ -22,4 +22,12 @@ router.post("/", (req, res, next) => {
     res.redirect("/user/profile");
 });
 
+
+router.get("/delete/:id", async (req, res, next) => {
+    const id = req.params['id'];
+
+    await placeModel.deleteOne({ _id: id });
+    res.redirect("/user/profile")
+})
+
 module.exports = router;

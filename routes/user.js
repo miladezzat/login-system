@@ -12,22 +12,16 @@ router.get('/profile', isLoggedIn, async (req, res, next) => {
 
   const places = await placeModel.find();
 
-  console.log("Place: ", places);
-
   res.render('user/profile', {
     username: req.user.full_name,
     title: "sarah && roma",
     places,
+    places_nums: places.length,
+    havePlace: places.length > 0,
   });
 });
 
-router.get('/addproduct', isLoggedIn, function (req, res, next) {
-  res.render('user/addproduct', { csrfToken: req.csrfToken() });
-});
-
-router.post('/addproduct', isLoggedIn, function (req, res, next) {
-  res.redirect('user/addproduct');
-});
+// res.render('user/addproduct', { csrfToken: req.csrfToken() });
 
 router.get('/logout', isLoggedIn, function (req, res, next) {
   req.logout();
