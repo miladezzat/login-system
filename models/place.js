@@ -14,6 +14,10 @@ var placeSchema = new Schema({
   category: {
     type: String,
   },
+  card_icon: {
+    type: String,
+  },
+  photos: [{ type: String }],
   created_at: {
     type: Date,
     default: Date.now(),

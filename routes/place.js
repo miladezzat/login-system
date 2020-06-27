@@ -1,14 +1,44 @@
 const express = require("express");
 
 const placeModel = require("../models/place");
-
 const router = express.Router();
 
-router.post("/", (req, res, next) => {
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/filesUploaded')
+    },
+    filename: function (req, file, cb) {
+        let extension = file.mimetype;
+        extension = extension.substring(
+            extension.indexOf('/') + 1,
+            extension.length
+        )
+        cb(null, file.originalname + Date.now() + '.' + extension)
+    }
+})
+
+const upload = multer({ storage: storage })
+
+
+
+router.post("/", upload.any(), (req, res, next) => {
     const { place_name, address, money_per_day, category } = req.body;
+    let card_icon, photos = [];
+    if (req.files) {
+        card_icon = req.files[0].path.slice(7);
+
+        for (let index = 1; index < req.files.length; index++) {
+            const file = req.files[index];
+            photos.push(file.path.slice(7));
+        }
+    }
     const newPlace = new placeModel({
         place_name,
         address,
+        card_icon,
+        photos,
         money_per_day: +money_per_day,
         category
     });
@@ -48,6 +78,26 @@ router.get("/delete/:id", async (req, res, next) => {
     await placeModel.deleteOne({ _id: id });
     res.redirect("/user/profile")
 });
+
+//search
+
+router.get("/recommend", async (req, res, next) => {
+    const { budget, category } = req.query;
+
+    const results = await placeModel.find({ category: category });
+
+    const recommended = await results.map(result => {
+        let duration = budget / result.money_per_day;
+        return {
+            _id: result._id,
+            place_name: result.place_name,
+            money_per_day: result.money_per_day,
+            address: result.address,
+            duration,
+        }
+    });
+    res.render("search");
+})
 
 
 

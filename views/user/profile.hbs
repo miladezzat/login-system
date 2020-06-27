@@ -5,7 +5,7 @@
     <div class="col-12 px-5">
         {{#if place}}
         <h1 class="text-center py-3">Edit place</h1>
-        <form class="h1 p-5" action="/place/edit/{{place._id}}" method="POST">
+        <form class="h1 p-5" action="/place/edit/{{place._id}}" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="place_name">Place Name</label>
                 <input name="place_name" value={{place.place_name}} type="text" class="form-control" id="place_name"
@@ -22,6 +22,9 @@
                     id="money_per_day" placeholder="Money Per day">
             </div>
             <div class="form-group">
+                <input type="file" name="pictures" multiple class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="category">Category</label>
                 <select name="category" value={{place.category}} class="form-control" id="category">
                     <option value="cat 1">1</option>
@@ -35,7 +38,7 @@
         </form>
         {{else}}
         <h1 class="text-center  py-3">Add new place</h1>
-        <form class="h1 p-5" action="/place" method="POST">
+        <form class="h1 p-5" action="/place" method="POST" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="place_name">Place Name</label>
                 <input name="place_name" type="text" class="form-control" id="place_name" placeholder="Place name">
@@ -48,6 +51,9 @@
                 <label for="money_per_day">Money Per Day</label>
                 <input name="money_per_day" type="number" class="form-control" id="money_per_day"
                     placeholder="Money Per day">
+            </div>
+                     <div class="form-group">
+                <input type="file" name="pictures" multiple class="form-control">
             </div>
             <div class="form-group">
                 <label for="category">Category</label>

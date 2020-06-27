@@ -6,8 +6,33 @@
                 <h1 class="title">Welcome to <span>trippin</span></h1>
                 <h2 class="subtitle">Get ready to plan your trip</h2>
             </div>
-            <a href="#" class="btn">Explore now
-            </a>
+            <form action="/place/recommend" method="get">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" type="number" name="budget" placeholder="Budget">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <select name="category" value={{place.category}} class="form-control" id="category">
+                                    <option disabled> Select Trip Type </option>
+                                    <option value="cat 1"> Cat 1</option>
+                                    <option value="cat 2"> Cat 2</option>
+                                    <option value="cat 3"> Cat 3</option>
+                                    <option value="cat 4"> Cat 4</option>
+                                    <option value="cat 5"> Cat 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn px-5 py-3">Find</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
 </main>
@@ -137,17 +162,17 @@
     </div>
 </section>
 <!--- End of the contact section ------>
-  <!--- Start of the Footer ------>
-  <footer class="footer">
+<!--- Start of the Footer ------>
+<footer class="footer">
     <div class="container">
-      <h4 class="footer-heading">Follow us</h4>
-      <div class="social-media-wrapper">
-        <a href="#" class="link"><i class="fab fa-facebook-square"></i></a>
-        <a href="#" class="link"><i class="fab fa-twitter-square"></i></a>
-        <a href="#" class="link"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="link"><i class="fab fa-pinterest"></i></a>
-      </div>
+        <h4 class="footer-heading">Follow us</h4>
+        <div class="social-media-wrapper">
+            <a href="#" class="link"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" class="link"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" class="link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="link"><i class="fab fa-pinterest"></i></a>
+        </div>
     </div>
     </div>
-  </footer>
-  <!--- End of the Footer ------>
+</footer>
+<!--- End of the Footer ------>
