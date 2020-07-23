@@ -89,7 +89,8 @@ router.get("/recommend", async (req, res, next) => {
         results = await placeModel.find();
         recommended = results;
     } else {
-        results = await placeModel.find({ category: category });
+        let pattern = new RegExp(category, 'i')
+        results = await placeModel.find({ category: { $regex: pattern} });
 
         recommended = await results.map(result => {
             let duration = budget / result.money_per_day;
