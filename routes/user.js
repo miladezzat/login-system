@@ -15,6 +15,7 @@ router.get('/profile', isLoggedIn, async (req, res, next) => {
   res.render('user/profile', {
     username: req.user.full_name,
     title: "sarah && roma",
+    isAdmin: req.user.isAdmin,
     places,
     places_nums: places.length,
     havePlace: places.length > 0,

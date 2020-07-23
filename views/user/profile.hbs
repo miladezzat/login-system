@@ -1,81 +1,84 @@
+{{#if isAdmin}}
 <div class="container py-5 h1">
-    <div class="col-12 py-5">
-        <h1 class="text-center">{{username}}</h1>
-    </div>
-    <div class="col-12 px-5">
-        {{#if place}}
-        <h1 class="text-center py-3">Edit place</h1>
-        <form class="h1 p-5" action="/place/edit/{{place._id}}" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="place_name">Place Name</label>
-                <input name="place_name" value={{place.place_name}} type="text" class="form-control" id="place_name"
-                    placeholder="Place name">
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input name="address" value={{place.address}} type="text" class="form-control" id="address"
-                    placeholder="Address">
-            </div>
-            <div class="form-group">
-                <label for="money_per_day">Money Per Day</label>
-                <input name="money_per_day" value={{place.money_per_day}} type="number" class="form-control"
-                    id="money_per_day" placeholder="Money Per day">
-            </div>
-            <div class="form-group">
-                <input type="file" name="pictures" multiple class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select name="category" value={{place.category}} class="form-control" id="category">
-                    <option value="cat 1">1</option>
-                    <option value="cat 2">2</option>
-                    <option value="cat 3">3</option>
-                    <option value="cat 4">4</option>
-                    <option value="cat 5">5</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary">Edit </button>
-        </form>
-        {{else}}
-        <h1 class="text-center  py-3">Add new place</h1>
-        <form class="h1 p-5" action="/place" method="POST" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="place_name">Place Name</label>
-                <input name="place_name" type="text" class="form-control" id="place_name" placeholder="Place name">
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input name="address" type="text" class="form-control" id="address" placeholder="Address">
-            </div>
-            <div class="form-group">
-                <label for="money_per_day">Money Per Day</label>
-                <input name="money_per_day" type="number" class="form-control" id="money_per_day"
-                    placeholder="Money Per day">
-            </div>
-            <div class="form-group">
-                <input type="file" name="pictures" multiple class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select name="category" class="form-control" id="category">
-                    <option value="cat 1">1</option>
-                    <option value="cat 2">2</option>
-                    <option value="cat 3">3</option>
-                    <option value="cat 4">4</option>
-                    <option value="cat 5">5</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-block btn-primary">Save</button>
-        </form>
-        {{/if}}
+    <div class="row">
+        <div class="col-12 py-5">
+            <h1 class="text-center">{{username}}</h1>
+        </div>
+        <div class="col-12 px-5">
+            {{#if place}}
+            <h1 class="text-center py-3">Edit place</h1>
+            <form class="h1 p-5" action="/place/edit/{{place._id}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="place_name">Place Name</label>
+                    <input name="place_name" value={{place.place_name}} type="text" class="form-control" id="place_name"
+                        placeholder="Place name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input name="address" value={{place.address}} type="text" class="form-control" id="address"
+                        placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <label for="money_per_day">Money Per Day</label>
+                    <input name="money_per_day" value={{place.money_per_day}} type="number" class="form-control"
+                        id="money_per_day" placeholder="Money Per day">
+                </div>
+                <div class="form-group">
+                    <input type="file" name="pictures" multiple class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" value={{place.category}} class="form-control" id="category">
+                        <option value="cat 1">1</option>
+                        <option value="cat 2">2</option>
+                        <option value="cat 3">3</option>
+                        <option value="cat 4">4</option>
+                        <option value="cat 5">5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Edit </button>
+            </form>
+            {{else}}
+            <h1 class="text-center  py-3">Add new place</h1>
+            <form class="h1 p-5" action="/place" method="POST" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="place_name">Place Name</label>
+                    <input name="place_name" type="text" class="form-control" id="place_name" placeholder="Place name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input name="address" type="text" class="form-control" id="address" placeholder="Address">
+                </div>
+                <div class="form-group">
+                    <label for="money_per_day">Money Per Day</label>
+                    <input name="money_per_day" type="number" class="form-control" id="money_per_day"
+                        placeholder="Money Per day">
+                </div>
+                <div class="form-group">
+                    <input type="file" name="pictures" multiple class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" class="form-control" id="category">
+                        <option value="cat 1">1</option>
+                        <option value="cat 2">2</option>
+                        <option value="cat 3">3</option>
+                        <option value="cat 4">4</option>
+                        <option value="cat 5">5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Save</button>
+            </form>
+            {{/if}}
+        </div>
     </div>
 </div>
 <div class="p-5">
@@ -118,3 +121,12 @@
 
     </table>
 </div>
+{{else}}
+<div class="container py-5 h1">
+    <div class="row py-5">
+        <div class="col-12 py-5">
+            <h1 class="text-center">{{username}}</h1>
+        </div>
+    </div>
+</div>
+{{/if}}

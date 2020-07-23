@@ -2,7 +2,7 @@ const express = require("express");
 
 const placeModel = require("../models/place");
 const router = express.Router();
-
+const isAdmin = require("../middleware/isAdmin");
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -22,8 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 
-
-router.post("/", upload.any(), (req, res, next) => {
+router.post("/",isAdmin, upload.any(), (req, res, next) => {
     const { place_name, address, money_per_day, category, description } = req.body;
     let card_icon, photos = [];
     if (req.files) {
@@ -53,13 +52,13 @@ router.post("/", upload.any(), (req, res, next) => {
     res.redirect("/user/profile");
 });
 
-router.get("/edit/:place_id", async (req, res, next) => {
+router.get("/edit/:place_id",isAdmin, async (req, res, next) => {
     const { place_id } = req.params;
     const place = await placeModel.findById(place_id);
     res.render("user/profile", { place });
 });
 
-router.post("/edit/:place_id", async (req, res, next) => {
+router.post("/edit/:place_id",isAdmin, async (req, res, next) => {
     const { place_id } = req.params;
     const { place_name, address, money_per_day, category } = req.body;
 
@@ -74,7 +73,7 @@ router.post("/edit/:place_id", async (req, res, next) => {
     res.redirect("/user/profile");
 });
 
-router.get("/delete/:id", async (req, res, next) => {
+router.get("/delete/:id",isAdmin, async (req, res, next) => {
     const id = req.params['id'];
     await placeModel.deleteOne({ _id: id });
     res.redirect("/user/profile")

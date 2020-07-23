@@ -13,7 +13,11 @@ var userSchema = new Schema({
   password: { 
     type: String, 
     required: true 
-  },  
+  }, 
+  isAdmin:{
+    type: Boolean,
+    default: false,
+  } 
 });
 
 userSchema.methods.encryptPasswprd = function (password) {
